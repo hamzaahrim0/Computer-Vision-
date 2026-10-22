@@ -21,6 +21,7 @@ train:                                  # used in Phase 2
   weight_decay: 5.0e-4
   lr_head: 1.0e-3
   lr_backbone: 1.0e-4
+  save_checkpoint: false               # .pth files (~25 MB each) in results/runs
 
 paths:
   results_dir: results
