@@ -1,0 +1,9 @@
+# torch and torchvision are preinstalled on Google Colab / Kaggle.
+# Locally, install them first from https://pytorch.org/get-started/locally/
+numpy
+pillow
+pyyaml
+scikit-learn
+matplotlib
+pandas
+tqdm

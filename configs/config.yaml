@@ -1,0 +1,38 @@
+# ---------------------------------------------------------------
+# Central configuration. Values follow the Methodology section.
+# Paths can be overridden with environment variables:
+#   URBAN_DATA_ROOT     -> data.root
+#   URBAN_RESULTS_DIR   -> paths.results_dir
+# ---------------------------------------------------------------
+data:
+  root: data/UCMerced_LandUse/Images   # 21 sub-folders, 100 images each
+  img_size: 224
+  test_size: 0.20                      # stratified 80/20 split
+  num_workers: 2
+  batch_size: 32
+
+experiment:
+  seeds: [0, 1, 2, 3, 4]               # 5 runs, one split per seed
+  regimes: [A, B, C]
+
+train:                                  # used in Phase 2
+  epochs: 30
+  momentum: 0.9
+  weight_decay: 5.0e-4
+  lr_head: 1.0e-3
+  lr_backbone: 1.0e-4
+
+paths:
+  results_dir: results
+
+# Urban subset U used for the urban-focused metrics (Phase 3)
+urban_classes:
+  - denseresidential
+  - mediumresidential
+  - sparseresidential
+  - buildings
+  - intersection
+  - freeway
+  - overpass
+  - parkinglot
+  - harbor
