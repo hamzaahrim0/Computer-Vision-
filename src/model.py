@@ -8,12 +8,16 @@ BN_TYPES = (nn.BatchNorm1d, nn.BatchNorm2d, nn.BatchNorm3d)
 def build_model(num_classes=21):
     """GoogLeNet pre-trained on ImageNet with a new `num_classes`-way FC layer.
 
-    - Auxiliary classifiers are discarded (aux_logits=False).
+    - Auxiliary classifiers are discarded. torchvision forces aux_logits=True
+      when loading pre-trained weights, so we remove them afterwards.
     - torchvision sets transform_input=True with these weights: it converts
       ImageNet-normalised inputs to the normalisation expected by the ported
       weights, so our standard ImageNet mean/std normalisation is correct.
     """
-    model = googlenet(weights=GoogLeNet_Weights.IMAGENET1K_V1, aux_logits=False)
+    model = googlenet(weights=GoogLeNet_Weights.IMAGENET1K_V1)
+    model.aux_logits = False
+    model.aux1 = None
+    model.aux2 = None
     model.fc = nn.Linear(model.fc.in_features, num_classes)  # 1024 -> 21
     return model
 
