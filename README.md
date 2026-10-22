@@ -3,7 +3,7 @@
 Fine-tuning strategies (A: frozen backbone, B: last inception block, C: full)
 for GoogLeNet on the UC Merced Land Use dataset.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hamzaahrim0/Computer-Vision-/blob/main/notebooks/01_colab_phase2.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hamzaahrim0/Computer-Vision-/blob/main/notebooks/02_colab_phase3.ipynb)
 
 ## Structure
 ```
@@ -15,6 +15,8 @@ src/model.py            GoogLeNet + transfer regimes A/B/C
 src/train.py            training / evaluation of one run
 run_all.py              runs 3 regimes x 5 seeds (resumable), summary table
 scripts/check_phase2.py Phase 2 sanity checks
+src/evaluate.py         metrics, confusion matrices, paired tests
+scripts/make_report.py  LaTeX tables, figures, summary (Phase 3)
 scripts/download_data.py   downloads UC Merced (2100 images, 21 classes)
 scripts/check_phase1.py    Phase 1 sanity checks
 notebooks/              Colab notebooks
@@ -36,5 +38,5 @@ python scripts/check_phase1.py
 
 ## Phases
 1. Data and reproducibility (done)
-2. Model, regimes A/B/C and training (this commit)
-3. Evaluation, aggregation and LaTeX tables
+2. Model, regimes A/B/C and training (done)
+3. Evaluation, aggregation and LaTeX tables (this commit)
